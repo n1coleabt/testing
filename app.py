@@ -128,8 +128,7 @@ def generate_summary(recipe):
     instructions_str = "".join([f"{i+1}. {step.strip()}" for i, step in enumerate(instructions_raw.split(" | ")) if step.strip()])
 
     # Return formatted content
-    return f"
-{summary_raw}
+    return f"{summary_raw}
 
 **Ingredients:**
 {ingredients_str}
