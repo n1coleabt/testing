@@ -125,8 +125,7 @@ def generate_summary(recipe):
     ingredients_str = "".join([f"- {ing.strip()}" for ing in ingredients_list if len(ing.strip()) > 1])
 
     # Format instructions step-by-step
-    instructions_str = "
-".join([f"{i+1}. {step.strip()}" for i, step in enumerate(instructions_raw.split(" | ")) if step.strip()])
+    instructions_str = "".join([f"{i+1}. {step.strip()}" for i, step in enumerate(instructions_raw.split(" | ")) if step.strip()])
 
     # Return formatted content
     return f"
