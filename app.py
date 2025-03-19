@@ -75,7 +75,6 @@ def load_llm():
 
     return model, tokenizer
 
-
 # Load FAISS and LLM globally to avoid repeated loading
 index, recipes = load_faiss_index()
 model, tokenizer = load_llm()
@@ -128,18 +127,7 @@ def generate_summary(recipe):
     instructions_str = "".join([f"{i+1}. {step.strip()}" for i, step in enumerate(instructions_raw.split(" | ")) if step.strip()])
 
     # Return formatted content
-    return f"{summary_raw}
-
-**Ingredients:**
-{ingredients_str}
-
-**Instructions:**
-{instructions_str}"
-
-
-
-
-
+    return f"{summary_raw}\n\n**Ingredients:**\n{ingredients_str}\n\n**Instructions:**\n{instructions_str}"
 
 # Streamlit UI
 st.title("🍜 Recipe Recommender with RAG (Japanese Cuisine Only)")
@@ -163,7 +151,6 @@ if query:
             else:
                 ingredients_list = ["No ingredients available."]
 
-
             st.write(f"[View Full Recipe]({recipe.get('url', '#')})")
     else:
         st.warning("No recipes found. Try a different ingredient or dish.")
@@ -171,4 +158,3 @@ if query:
 # Footer
 st.markdown("---")
 st.markdown("Recipes sourced from AllRecipes")
-
