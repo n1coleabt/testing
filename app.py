@@ -122,8 +122,7 @@ def generate_summary(recipe):
         ingredients_list = ["No ingredients available."]
 
     # Format ingredients properly
-    ingredients_str = "
-".join([f"- {ing.strip()}" for ing in ingredients_list if len(ing.strip()) > 1])
+    ingredients_str = "".join([f"- {ing.strip()}" for ing in ingredients_list if len(ing.strip()) > 1])"
 
     # Format instructions step-by-step
     instructions_str = "
